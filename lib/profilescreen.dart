@@ -24,6 +24,13 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: Container(
                   child: Stack(
                     children: <Widget>[
+                      Positioned(
+                        bottom: 10,
+                        right: 110,
+                        child: Container(
+                          child: Text('Copyright © by Rezerbiw 2020'),
+                        ),
+                      ),
                       Padding(
                         padding: EdgeInsets.all(10),
                         child: ClipRRect(
@@ -58,7 +65,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           child: Column(
                             children: <Widget>[
                               Column(
-                                children: <Widget>[Text('Teerawut Siammai')],
+                                children: <Widget>[Text('Teerawut Siammai',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18),)],
                               ),
                               Column(
                                 children: <Widget>[
@@ -72,9 +79,10 @@ class _MyHomePageState extends State<MyHomePage> {
                                 ],
                               ),
                               Container(
-                                 padding: EdgeInsets.all(20),
+                                padding: EdgeInsets.all(20),
                                 child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
                                   children: <Widget>[
                                     Column(
                                       children: <Widget>[
@@ -83,7 +91,9 @@ class _MyHomePageState extends State<MyHomePage> {
                                           color: Colors.black,
                                           size: 24.0,
                                         ),
-                                        Container(padding: EdgeInsets.all(10),child: Text('Movie'))
+                                        Container(
+                                            padding: EdgeInsets.all(10),
+                                            child: Text('Movie'))
                                       ],
                                     ),
                                     Column(
@@ -93,17 +103,21 @@ class _MyHomePageState extends State<MyHomePage> {
                                           color: Colors.black,
                                           size: 24.0,
                                         ),
-                                        Container(padding: EdgeInsets.all(10),child: Text('Travel'))
+                                        Container(
+                                            padding: EdgeInsets.all(10),
+                                            child: Text('Travel'))
                                       ],
                                     ),
-                                       Column(
+                                    Column(
                                       children: <Widget>[
                                         Icon(
                                           Icons.games,
                                           color: Colors.black,
                                           size: 24.0,
                                         ),
-                                        Container(padding: EdgeInsets.all(10),child: Text('Game'))
+                                        Container(
+                                            padding: EdgeInsets.all(10),
+                                            child: Text('Game'))
                                       ],
                                     )
                                   ],
