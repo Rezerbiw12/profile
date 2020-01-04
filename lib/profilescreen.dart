@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
   final String title;
-
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
@@ -26,9 +25,9 @@ class _MyHomePageState extends State<MyHomePage> {
                     children: <Widget>[
                       Positioned(
                         bottom: 10,
-                        right: 110,
+                        right: 122,
                         child: Container(
-                          child: Text('Copyright © by Rezerbiw 2020'),
+                          child: Text('Copyright © by Rezerbiw 2020',style: TextStyle(color: Colors.black38,fontSize: 12),),
                         ),
                       ),
                       Padding(
