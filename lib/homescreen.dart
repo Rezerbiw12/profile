@@ -44,7 +44,9 @@ class _HomeScreenState extends State<HomeScreen> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             CarouselSlider(
-                height: 400,
+                aspectRatio: 16 / 9,
+                autoPlayAnimationDuration: Duration(milliseconds: 2000),
+                height: 200,
                 enlargeCenterPage: true,
                 autoPlay: true,
                 initialPage: 0,
@@ -59,8 +61,8 @@ class _HomeScreenState extends State<HomeScreen> {
                       return Container(
                         width: MediaQuery.of(context).size.width,
                         margin: EdgeInsets.symmetric(horizontal: 10.0),
-                        decoration: BoxDecoration(color: Colors.green),
-                        child: Image.network(imgUrl, fit: BoxFit.fill),
+                        decoration: BoxDecoration(color: Colors.white),
+                        child: ClipRRect(borderRadius: BorderRadius.circular(8.0),child: Image.network(imgUrl, fit: BoxFit.fill),)
                       );
                     },
                   );
