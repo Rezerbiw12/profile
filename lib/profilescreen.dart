@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -6,8 +8,22 @@ class ProfileScreen extends StatefulWidget {
   @override
   _ProfileScreenState createState() => _ProfileScreenState();
 }
+ var list = [1,2,3,4,5,6];
+
+ var evens = list.where((e) => e%2 == 0);
+ var odds = list.where((e) => e%2 == 1);
+
 
 class _ProfileScreenState extends State<ProfileScreen> {
+  
+  var lists = Iterable<int>.generate(101).toList().skip(1).where((i) => i%2 == 0);
+  @override
+  void initState() {
+    print(lists);
+    print('number evens is : ${evens}');
+    print('number odds is : ${odds}');
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
