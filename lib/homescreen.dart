@@ -94,6 +94,43 @@ class _HomeScreenState extends State<HomeScreen> {
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
             ),
+            SizedBox(
+              height: 10,
+            ),
+            Card(
+              child: new Column(
+                children: <Widget>[
+                  new Image.network(
+                      'https://i.ytimg.com/vi/fq4N0hgOWzU/maxresdefault.jpg'),
+                  new Padding(
+                      padding: new EdgeInsets.all(7.0),
+                      child: new Row(
+                        children: <Widget>[
+                          new Padding(
+                            padding: new EdgeInsets.all(7.0),
+                            child: new Icon(Icons.thumb_up),
+                          ),
+                          new Padding(
+                            padding: new EdgeInsets.all(7.0),
+                            child: new Text(
+                              'Like',
+                              style: new TextStyle(fontSize: 18.0),
+                            ),
+                          ),
+                          new Padding(
+                            padding: new EdgeInsets.all(7.0),
+                            child: new Icon(Icons.comment),
+                          ),
+                          new Padding(
+                            padding: new EdgeInsets.all(7.0),
+                            child: new Text('Comments',
+                                style: new TextStyle(fontSize: 18.0)),
+                          )
+                        ],
+                      ))
+                ],
+              ),
+            )
           ],
         ),
       ),
