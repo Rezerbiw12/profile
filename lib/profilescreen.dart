@@ -28,7 +28,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('My Profile'),
+        title: Text('MyProfile'),
         centerTitle: true,
       ),
       body: CustomScrollView(

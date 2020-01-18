@@ -42,90 +42,154 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text('HomeScreen'),
-          centerTitle: true,
-          actions: <Widget>[
-            Padding(
-              padding: EdgeInsets.all(10),
-              child: IconButton(
-                icon: const Icon(
-                  Icons.account_circle,
-                  size: 30,
+      appBar: AppBar(
+        title: Text('HomeScreen'),
+        centerTitle: true,
+        actions: <Widget>[
+          Padding(
+            padding: EdgeInsets.all(10),
+            child: IconButton(
+              icon: const Icon(
+                Icons.account_circle,
+                size: 30,
+              ),
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => ProfileScreen()));
+              },
+            ),
+          )
+        ],
+      ),
+      body: Column(
+        children: <Widget>[
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: <Widget>[
+              Padding(
+                padding: EdgeInsets.all(10),
+                child: Text(
+                  "My Gallery",
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
-                onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => ProfileScreen()));
-                },
               ),
-            )
-          ],
-        ),
-        body: Column(
+            ],
+          ),
+          CarouselSlider(
+              aspectRatio: 16 / 9,
+              autoPlayAnimationDuration: Duration(milliseconds: 2000),
+              height: 200,
+              enlargeCenterPage: true,
+              autoPlay: true,
+              initialPage: 0,
+              onPageChanged: (index) {
+                setState(() {
+                  _current = index;
+                });
+              },
+              items: imageList.map((imgUrl) {
+                return Builder(
+                  builder: (BuildContext context) {
+                    return Container(
+                        width: MediaQuery.of(context).size.width,
+                        margin: EdgeInsets.symmetric(horizontal: 10.0),
+                        decoration: BoxDecoration(color: Colors.white),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(8.0),
+                          child: Image.network(imgUrl, fit: BoxFit.fill),
+                        ));
+                  },
+                );
+              }).toList()),
+          SizedBox(
+            height: 10,
+          ),
+          Container(
+            color: Colors.black12,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                Padding(
+                  padding: EdgeInsets.all(10),
+                  child: Text(
+                    "Test Get API ",
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Expanded(
+            child: ListView.builder(
+              itemCount: data == null ? 0 : data.length,
+              itemBuilder: (context, index) {
+                return Padding(
+                  padding: EdgeInsets.all(10),
+                  child: Container(
+                      child: Card(
+                    child: Column(
+                      children: <Widget>[
+                        ListTile(
+                          leading: Icon(Icons.album, size: 50),
+                          title: Text('Heart Shaker'),
+                          subtitle: Text(data[index]['title']),
+                        ),
+                      ],
+                    ),
+                  )),
+                );
+              },
+            ),
+          )
+        ],
+      ),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
           children: <Widget>[
-            Padding(
-              padding: EdgeInsets.all(10),
-              child: Text(
-                "My Gallery",
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            UserAccountsDrawerHeader(
+              decoration: BoxDecoration(
+                color: Colors.blue[400]
+              ),
+              accountName: Text("Teerawut Siammai"),
+              accountEmail: Text("teerawut1212@hotmail.com"),
+              currentAccountPicture: CircleAvatar(
+                backgroundImage: NetworkImage(
+                    'https://scontent.fbkk5-2.fna.fbcdn.net/v/t1.0-9/p960x960/69168870_2371102676511624_3103166390220095488_o.jpg?_nc_cat=105&_nc_ohc=67p6DgI6NdwAQkXFkfoXyXx6EaTxzxA1JpCfcdy01yAN4UiuYQNDaBm0w&_nc_ht=scontent.fbkk5-2.fna&oh=c4281aa79734c6e2ea0510cda0cce86f&oe=5E7010A0'),
               ),
             ),
-            CarouselSlider(
-                aspectRatio: 16 / 9,
-                autoPlayAnimationDuration: Duration(milliseconds: 2000),
-                height: 200,
-                enlargeCenterPage: true,
-                autoPlay: true,
-                initialPage: 0,
-                onPageChanged: (index) {
-                  setState(() {
-                    _current = index;
-                  });
-                },
-                items: imageList.map((imgUrl) {
-                  return Builder(
-                    builder: (BuildContext context) {
-                      return Container(
-                          width: MediaQuery.of(context).size.width,
-                          margin: EdgeInsets.symmetric(horizontal: 10.0),
-                          decoration: BoxDecoration(color: Colors.white),
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(8.0),
-                            child: Image.network(imgUrl, fit: BoxFit.fill),
-                          ));
-                    },
-                  );
-                }).toList()),
-            SizedBox(
-              height: 10,
-            ),
-            Expanded(
-              child: ListView.builder(
-                itemCount: data == null ? 0 : data.length,
-                itemBuilder: (context, index) {
-                  return test(context, index);
-                },
-              ),
-            )
-          ],
-        ));
-  }
-
-  Widget test(BuildContext context, int index) {
-    return Padding(
-      padding: EdgeInsets.all(10),
-      child: Container(
-          child: Card(
-        child: Column(
-          children: <Widget>[
             ListTile(
-              leading: Icon(Icons.album, size: 50),
-              title: Text('Heart Shaker'),
-              subtitle: Text(data[index]['title']),
+              leading: Icon(Icons.home),
+              title: Text('HomeScreen'),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.account_circle),
+              title: Text('ProfileScreen'),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+            new Divider(),
+            ListTile(
+              leading: Icon(Icons.info),
+              title: Text('About'),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.power_settings_new),
+              title: Text('Logout'),
+              onTap: () {
+                Navigator.pop(context);
+              },
             ),
           ],
         ),
-      )),
+      ),
     );
   }
 }
