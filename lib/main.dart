@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:resume/loadingscreen.dart';
 import 'profilescreen.dart';
 import 'homescreen.dart';
 
@@ -12,7 +13,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: HomeScreen(),
+      home: LoadingScreen(),
+     routes: <String,WidgetBuilder>{
+          '/HomeScreen':(BuildContext context) => HomeScreen()
+        }
     );
   }
 }
