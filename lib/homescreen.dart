@@ -1,5 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:resume/aboutscreen.dart';
+import 'package:resume/commentscreen.dart';
 import 'profilescreen.dart';
 import 'package:http/http.dart' as http;
 import 'package:carousel_slider/carousel_slider.dart';
@@ -160,16 +162,25 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             ListTile(
               leading: Icon(Icons.home),
-              title: Text('HomeScreen'),
+              title: Text('Home'),
               onTap: () {
                 Navigator.pop(context);
               },
             ),
             ListTile(
               leading: Icon(Icons.account_circle),
-              title: Text('ProfileScreen'),
+              title: Text('Profile'),
               onTap: () {
-                Navigator.pop(context);
+                 Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => ProfileScreen()));
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.comment),
+              title: Text('Comments'),
+              onTap: () {
+                 Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => CommentsScreen()));
               },
             ),
             new Divider(),
@@ -177,7 +188,8 @@ class _HomeScreenState extends State<HomeScreen> {
               leading: Icon(Icons.info),
               title: Text('About'),
               onTap: () {
-                Navigator.pop(context);
+                 Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => AboutScreen()));
               },
             ),
             ListTile(
