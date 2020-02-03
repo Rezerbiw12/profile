@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:resume/loadingscreen.dart';
+import 'package:resume/loginscreen.dart';
 import 'profilescreen.dart';
 import 'homescreen.dart';
 
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
       ),
       home: LoadingScreen(),
      routes: <String,WidgetBuilder>{
-          '/HomeScreen':(BuildContext context) => HomeScreen()
+          '/HomeScreen':(BuildContext context) => LoginScreen()
         }
     );
   }

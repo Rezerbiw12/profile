@@ -8,15 +8,15 @@ class ProfileScreen extends StatefulWidget {
   @override
   _ProfileScreenState createState() => _ProfileScreenState();
 }
- var list = [1,2,3,4,5,6];
 
- var evens = list.where((e) => e%2 == 0);
- var odds = list.where((e) => e%2 == 1);
+var list = [1, 2, 3, 4, 5, 6];
 
+var evens = list.where((e) => e % 2 == 0);
+var odds = list.where((e) => e % 2 == 1);
 
 class _ProfileScreenState extends State<ProfileScreen> {
-  
-  var lists = Iterable<int>.generate(101).toList().skip(1).where((i) => i%2 == 0);
+  var lists =
+      Iterable<int>.generate(101).toList().skip(1).where((i) => i % 2 == 0);
   @override
   void initState() {
     print(lists);
@@ -24,6 +24,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
     print('number odds is : ${odds}');
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,7 +44,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         bottom: 10,
                         right: 122,
                         child: Container(
-                          child: Text('Copyright © by Rezerbiw 2020',style: TextStyle(color: Colors.black38,fontSize: 12),),
+                          child: Text(
+                            'Copyright © by Rezerbiw 2020',
+                            style:
+                                TextStyle(color: Colors.black38, fontSize: 12),
+                          ),
                         ),
                       ),
                       Padding(
@@ -80,7 +85,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           child: Column(
                             children: <Widget>[
                               Column(
-                                children: <Widget>[Text('Teerawut Siammai',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18),)],
+                                children: <Widget>[
+                                  Text(
+                                    'Teerawut Siammai',
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 18),
+                                  )
+                                ],
                               ),
                               Column(
                                 children: <Widget>[

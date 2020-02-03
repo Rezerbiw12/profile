@@ -78,7 +78,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ],
           ),
           CarouselSlider(
-              aspectRatio: 16 / 9,
+              aspectRatio: 16 / 9, 
               autoPlayAnimationDuration: Duration(milliseconds: 2000),
               height: 200,
               enlargeCenterPage: true,
@@ -150,9 +150,7 @@ class _HomeScreenState extends State<HomeScreen> {
           padding: EdgeInsets.zero,
           children: <Widget>[
             UserAccountsDrawerHeader(
-              decoration: BoxDecoration(
-                color: Colors.blue[400]
-              ),
+              decoration: BoxDecoration(color: Colors.blue[400]),
               accountName: Text("Teerawut Siammai"),
               accountEmail: Text("teerawut1212@hotmail.com"),
               currentAccountPicture: CircleAvatar(
@@ -171,7 +169,7 @@ class _HomeScreenState extends State<HomeScreen> {
               leading: Icon(Icons.account_circle),
               title: Text('Profile'),
               onTap: () {
-                 Navigator.push(context,
+                Navigator.push(context,
                     MaterialPageRoute(builder: (context) => ProfileScreen()));
               },
             ),
@@ -179,7 +177,7 @@ class _HomeScreenState extends State<HomeScreen> {
               leading: Icon(Icons.comment),
               title: Text('Comments'),
               onTap: () {
-                 Navigator.push(context,
+                Navigator.push(context,
                     MaterialPageRoute(builder: (context) => CommentsScreen()));
               },
             ),
@@ -188,7 +186,7 @@ class _HomeScreenState extends State<HomeScreen> {
               leading: Icon(Icons.info),
               title: Text('About'),
               onTap: () {
-                 Navigator.push(context,
+                Navigator.push(context,
                     MaterialPageRoute(builder: (context) => AboutScreen()));
               },
             ),
